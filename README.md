@@ -5,6 +5,10 @@ mayaで使えるpythonスクリプト。
 # ツール一覧
 ・BakeFramer.py（MAYA）
 ＞任意の間隔でアニメーションキーを打ってくれるスクリプト。削除したくないフレームも指定可能です。
+BakeFramer.pyをdocument/maya/scriptフォルダに保存し、以下のスクリプトをmayaでのスクリプトエディタ（pythonのほうに）で入力してください。
+import BakeFramer
+BakeFramer.create_gui()
+
 
 # 利用条件
 ・このスクリプトの再配布、転売を禁止します。
