@@ -2,7 +2,7 @@
 
 import maya.cmds as cmds
 
-def bake_frames(frame_interval, keep_freames):
+def bake_frames(frame_interval, keep_frames):
     selected_objs = cmds.ls(selection=True)
 
     if not selected_objs:
