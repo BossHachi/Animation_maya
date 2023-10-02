@@ -1,0 +1,2 @@
+# souceTree
+mayaで使えるpythonスクリプト
