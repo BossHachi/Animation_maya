@@ -52,5 +52,3 @@ def create_gui():
     
     bake_button = cmds.button(label="Bake", command=lambda _: bake_frames(cmds.intField(frame_field, q=True, v=True), cmds.textField(keep_frame_field, q=True, text=True)))
     cmds.showWindow()
-    
-create_gui()
