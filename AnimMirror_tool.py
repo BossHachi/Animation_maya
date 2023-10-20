@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import maya.cmds as cmds
 
 selected_rigs = None
@@ -29,9 +31,11 @@ def mirror_start(*args):
         # 回転値がロックされていて移動値がロックされていない場合の処理
         if rtLocked and not trLocked:                     
             point_name = rig + "_point"
-            point_name = point_name.replace("right", "dummy")
-            point_name = point_name.replace("left", "right" )
-            point_name = point_name.replace("dummy", "left")
+            point_name = point_name.replace("right", "dummy", 1)
+            point_name = point_name.replace("Right", "dummy", 1)
+            point_name = point_name.replace("left", "right", 1)
+            point_name = point_name.replace("Left", "Right", 1)
+            point_name = point_name.replace("dummy", "left", 1)
             point_base = cmds.spaceLocator(name = point_name)[0]
             cmds.matchTransform(point_base, rig, pos=True, rot=True)
             cmds.parent(point_base, rig)     
@@ -40,9 +44,11 @@ def mirror_start(*args):
         # 移動値がロックされていて回転値がロックされていない場合の処理
         elif trLocked and not rtLocked:
             orient_name = rig + "_orient"
-            orient_name = orient_name.replace("right", "dummy")
-            orient_name = orient_name.replace("left", "right" )
-            orient_name = orient_name.replace("dummy", "left")    
+            orient_name = orient_name.replace("right", "dummy", 1)
+            orient_name = orient_name.replace("Right", "dummy", 1)
+            orient_name = orient_name.replace("left", "right", 1) 
+            orient_name = orient_name.replace("Left", "Right", 1)
+            orient_name = orient_name.replace("dummy", "left", 1)
             orient_base = cmds.spaceLocator(name = orient_name)[0]
             cmds.matchTransform(orient_base, rig, pos=True, rot=True)
             cmds.parent(orient_base, rig)    
@@ -51,16 +57,20 @@ def mirror_start(*args):
         # 移動値と回転値がロックされていない場合の処理
         if not trLocked and not rtLocked:
             point_name = rig + "_point"
-            point_name = point_name.replace("right", "dummy")
-            point_name = point_name.replace("left", "right" )
-            point_name = point_name.replace("dummy", "left")
+            point_name = point_name.replace("right", "dummy", 1)
+            point_name = point_name.replace("Right", "dummy", 1)
+            point_name = point_name.replace("left", "right", 1)
+            point_name = point_name.replace("Left", "Right", 1)
+            point_name = point_name.replace("dummy", "left", 1)
             point_base = cmds.spaceLocator(name = point_name)[0]
             cmds.matchTransform(point_base, rig, pos=True, rot=True)            
                 
             orient_name = rig + "_orient"
-            orient_name = orient_name.replace("right", "dummy")
-            orient_name = orient_name.replace("left", "right" )
-            orient_name = orient_name.replace("dummy", "left")    
+            orient_name = orient_name.replace("right", "dummy", 1)
+            orient_name = orient_name.replace("Right", "dummy", 1)
+            orient_name = orient_name.replace("left", "right", 1) 
+            orient_name = orient_name.replace("Left", "Right", 1)
+            orient_name = orient_name.replace("dummy", "left", 1)   
             orient_base = cmds.spaceLocator(name = orient_name)[0]
             cmds.matchTransform(orient_base, rig, pos=True, rot=True)
             cmds.parent(point_base, orient_base, rig) 
@@ -114,7 +124,7 @@ def mirror_start(*args):
     
         # セット内のメンバーをループして条件に合致するものを検索
         for member in set_members:
-            if member.startswith("MoxRig_rig_") and not member.endswith("_bake"):
+            if member.startswith("MoxRig_") and not member.endswith("_bake"):# ここの行の("MoxRig_")を名前変えれば他のリグでも動くかも。リグの先頭の文字列を入れる。
                 rig = member
             elif "point_bake" in member:
                 loc_point = member
@@ -131,7 +141,7 @@ def mirror_start(*args):
         elif loc_orient:
             print("not orient",rig)
                 
-    cmds.currentTime(0)     
+    cmds.currentTime(0)        
 
 def mirror_bake(*args):
     global selected_rigs
@@ -153,10 +163,8 @@ def mirror_bake(*args):
                 minv = min(hoge)
                 if maxv > 180:   
                     cmds.keyframe(fcurve,e=True,r=True,vc=-360)
-                    print(fcurve + u"を-360オフセットしました。")
                 elif minv < -180:
                     cmds.keyframe(fcurve,e=True,r=True,vc=360)
-                    print(fcurve + u"を-360オフセットしました。")
     
     cmds.currentTime(1)
     cmds.currentTime(0)
