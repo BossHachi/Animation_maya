@@ -3,18 +3,25 @@ mayaで使えるpythonスクリプト。
 主にアニメーション関連で役立つスクリプトを公開します。
 
 # ツール一覧
-・BakeFramer.py（MAYA）
-＞任意の間隔でアニメーションキーを打ってくれるスクリプト。削除したくないフレームも指定可能です。
-BakeFramer.pyをdocument/maya/scriptフォルダに保存し、以下のスクリプトをmayaでのスクリプトエディタ（pythonのほうに）で入力してください。
-import BakeFramer
-BakeFramer.create_gui()
+<b>・BakeFramer.py（MAYA）</b><br>
+＞任意の間隔でアニメーションキーを打ってくれるスクリプト。削除したくないフレームも指定可能です。<br>
+BakeFramer.pyをdocument/maya/scriptフォルダに保存し、以下のスクリプトをmayaでのスクリプトエディタ（pythonのほうに）で入力してください。<br>
+<pre>
+  <code>
+    import BakeFramer<br>
+    BakeFramer.create_gui()
+  </code>
+</pre>
+<b>・AnimMirror_tool.py（MAYA）</b><br>
+＞今のところMoxリグ専用。アニメーション反転ツール。<br>
+AnimMirror_tool.pyをdocument/maya/scriptフォルダに保存し、以下のスクリプトをmayaでのスクリプトエディタ（pythonのほうに）で入力してください。<br>
 
-・AnimMirror_tool.py（MAYA）
-＞今のところMoxリグ専用。アニメーション反転ツール。
-AnimMirror_tool.pyをdocument/maya/scriptフォルダに保存し、以下のスクリプトをmayaでのスクリプトエディタ（pythonのほうに）で入力してください。
-import AnimMirror_tool
-AnimMirror_tool.mirror_tool_gui()
-
+<pre>
+  <code>
+    import AnimMirror_tool<br>
+    AnimMirror_tool.mirror_tool_gui()
+  </code>
+</pre>
 
 # 利用条件
 ・このスクリプトの再配布、転売を禁止します。
