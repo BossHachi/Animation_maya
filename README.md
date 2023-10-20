@@ -9,6 +9,12 @@ BakeFramer.pyをdocument/maya/scriptフォルダに保存し、以下のスク�
 import BakeFramer
 BakeFramer.create_gui()
 
+・AnimMirror_tool.py（MAYA）
+＞今のところMoxリグ専用。アニメーション反転ツール。
+BakeFramer.pyをdocument/maya/scriptフォルダに保存し、以下のスクリプトをmayaでのスクリプトエディタ（pythonのほうに）で入力してください。
+import BakeFramer
+BakeFramer.create_gui()
+
 
 # 利用条件
 ・このスクリプトの再配布、転売を禁止します。
